@@ -39,15 +39,9 @@ export default function ToastNotification() {
 
   return (
     <div
-      style={{
-        position: "fixed",
-        bottom: "28px",
-        right: "24px",
-        zIndex: 9999,
-        animation: animateOut
-          ? "slideOut 0.4s ease forwards"
-          : "slideIn 0.4s ease forwards",
-      }}
+      className={`fixed bottom-7 right-6 z-[9999] ${
+        animateOut ? "animate-slide-out" : "animate-slide-in"
+      }`}
     >
       <style>{`
         @keyframes slideIn {
@@ -58,144 +52,70 @@ export default function ToastNotification() {
           from { transform: translateX(0);    opacity: 1; }
           to   { transform: translateX(120%); opacity: 0; }
         }
+        @keyframes progress {
+          from { width: 100%; }
+          to   { width: 0%; }
+        }
+        .animate-slide-in { animation: slideIn 0.4s ease forwards; }
+        .animate-slide-out { animation: slideOut 0.4s ease forwards; }
+        .animate-progress { animation: progress 4s linear forwards; }
       `}</style>
 
-      <div
-        style={{
-          width: "320px",
-          background: "white",
-          borderRadius: "16px",
-          boxShadow: "0 8px 32px rgba(0,0,0,0.18)",
-          overflow: "hidden",
-          border: "1px solid #f0f0f0",
-        }}
-      >
+      <div className="w-80 bg-white rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.18)] overflow-hidden border border-gray-100">
         {/* Top color bar */}
         <div
-          style={{
-            height: "5px",
-            background: toast.color,
-            borderRadius: "16px 16px 0 0",
-          }}
+          className="h-[5px] rounded-t-2xl"
+          style={{ background: toast.color }}
         />
 
-        <div style={{ padding: "14px 16px 14px 16px" }}>
-          <div
-            style={{
-              display: "flex",
-              alignItems: "flex-start",
-              gap: "12px",
-            }}
-          >
+        <div className="px-4 py-3.5">
+          <div className="flex items-start gap-3">
             {/* Icon circle */}
             <div
-              style={{
-                width: "42px",
-                height: "42px",
-                borderRadius: "50%",
-                backgroundColor: toast.color + "20",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                fontSize: "20px",
-                flexShrink: 0,
-              }}
+              className="w-[42px] h-[42px] rounded-full flex items-center justify-center text-xl shrink-0"
+              style={{ backgroundColor: toast.color + "20" }}
             >
               {icon}
             </div>
 
             {/* Content */}
-            <div style={{ flex: 1, minWidth: 0 }}>
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "space-between",
-                  marginBottom: "3px",
-                }}
-              >
+            <div className="flex-1 min-w-0">
+              <div className="flex items-center justify-between mb-[3px]">
                 <span
-                  style={{
-                    fontSize: "11px",
-                    fontWeight: "600",
-                    color: toast.color,
-                    textTransform: "uppercase",
-                    letterSpacing: "0.5px",
-                  }}
+                  className="text-[11px] font-semibold uppercase tracking-[0.5px]"
+                  style={{ color: toast.color }}
                 >
-                  {typeLabel} Bana Gaya!
+                  {typeLabel} was made!
                 </span>
 
                 {/* Close button */}
                 <button
                   onClick={handleDismiss}
-                  style={{
-                    background: "none",
-                    border: "none",
-                    cursor: "pointer",
-                    color: "#aaa",
-                    fontSize: "20px",
-                    lineHeight: 1,
-                    padding: "0 0 0 8px",
-                  }}
+                  className="bg-transparent border-none cursor-pointer text-gray-400 text-xl leading-none pl-2"
                 >
                   ×
                 </button>
               </div>
 
               {/* Event title */}
-              <p
-                style={{
-                  margin: "0 0 4px 0",
-                  fontSize: "14px",
-                  fontWeight: "700",
-                  color: "#1a1a2e",
-                  overflow: "hidden",
-                  textOverflow: "ellipsis",
-                  whiteSpace: "nowrap",
-                }}
-              >
+              <p className="m-0 mb-1 text-sm font-bold text-[#1a1a2e] truncate">
                 {toast.title}
               </p>
 
               {/* User name */}
-              <p
-                style={{
-                  margin: 0,
-                  fontSize: "12px",
-                  color: "#666",
-                }}
-              >
-                👤 <strong>{toast.userName}</strong> ne add kiya
+              <p className="m-0 text-xs text-gray-500">
+                👤 <strong>{toast.userName}</strong> did the number
               </p>
             </div>
           </div>
 
           {/* Progress bar */}
-          <div
-            style={{
-              marginTop: "12px",
-              height: "3px",
-              background: "#f0f0f0",
-              borderRadius: "99px",
-              overflow: "hidden",
-            }}
-          >
+          <div className="mt-3 h-[3px] bg-gray-100 rounded-full overflow-hidden">
             <div
-              style={{
-                height: "100%",
-                background: toast.color,
-                borderRadius: "99px",
-                animation: "progress 4s linear forwards",
-              }}
+              className="h-full rounded-full animate-progress"
+              style={{ background: toast.color }}
             />
           </div>
-          <style>{`
-            @keyframes progress {
-              from { width: 100%; }
-              to   { width: 0%; }
-            }
-          `}</style>
         </div>
       </div>
     </div>

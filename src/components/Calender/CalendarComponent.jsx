@@ -93,7 +93,7 @@ export default function CalendarComponent() {
       if (matched) {
         const color = matched.textColor || "#3b82f6";
         // Poora cell box color ho — halki opacity ke saath
-        info.el.style.backgroundColor = color + "40"; // 40 = ~25% opacity
+        info.el.style.backgroundColor = color + "40"; 
         info.el.style.borderLeft = `4px solid ${color}`;
       }
     },
@@ -116,7 +116,7 @@ export default function CalendarComponent() {
   };
 
   const handleDelete = async (id) => {
-    if (!window.confirm("Delete karna chahte ho?")) return;
+    if (!window.confirm("Want to delete?")) return;
     try {
       await deleteEvent(id);
       await fetchEvents();

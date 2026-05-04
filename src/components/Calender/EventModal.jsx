@@ -68,7 +68,7 @@ function EventModal({ event, onClose, onComplete, onDelete, onEdit }) {
             </p>
             {!isSameDay && (
               <p className="text-xs text-indigo-500 mt-0.5">
-                Calculate {daysCount} days per event
+                Event on Clickalate {daysCount} Des
               </p>
             )}
           </div>

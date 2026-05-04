@@ -126,7 +126,7 @@ function CreateEvent() {
       return;
     }
     if (form.startDate > form.endDate) {
-      alert(" End date, start date se pehle nahi ho sakti!");
+      alert(" End date, can not be before the start date!");
       return;
     }
     setLoading(true);
@@ -156,7 +156,7 @@ function CreateEvent() {
       navigate("/");
     } catch (err) {
       alert(
-        "❌ Error: " + (err.response?.data?.message || "Kuch gadbad ho gayi"),
+        "❌ Error: " + (err.response?.data?.message || "Something will happen"),
       );
     } finally {
       setLoading(false);
@@ -193,7 +193,7 @@ function CreateEvent() {
         <input
           type="text"
           name="location"
-          placeholder={isBirthday ? "Venue / Ghar ka Address *" : "Location *"}
+          placeholder={isBirthday ? "Vane / Home Address*" : "Location *"}
           value={form.location}
           onChange={handleChange}
           className="w-full p-3 rounded-xl border border-gray-200 bg-gray-50 outline-none
@@ -216,7 +216,7 @@ function CreateEvent() {
         {/* Color Picker */}
         <div className="p-4 rounded-xl border border-gray-200 bg-gray-50">
           <p className="text-sm font-semibold text-gray-700 mb-3">
-            🎨 Event Color — Calendar mein is color ka box dikhega
+            🎨 Event Color — will show a box of that color in the calendar
           </p>
           <div className="flex flex-wrap gap-3 items-center">
             {EVENT_COLORS.map((col) => (
@@ -243,7 +243,7 @@ function CreateEvent() {
                 className="w-8 h-8 rounded-full cursor-pointer border-0 p-0"
                 title="Custom color chunein"
               />
-              <span className="text-xs text-gray-400">Custom</span>
+              <span className="text-xs text-gray-400">Customs</span>
             </div>
           </div>
           <div className="mt-3 flex items-center gap-2">
@@ -254,7 +254,7 @@ function CreateEvent() {
               {form.title || "Event Preview"}
             </div>
             <span className="text-xs text-gray-400">
-              Calendar mein aisa dikhega
+              Will see this in the calendar
             </span>
           </div>
         </div>

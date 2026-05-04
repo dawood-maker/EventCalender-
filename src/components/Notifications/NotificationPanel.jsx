@@ -87,8 +87,8 @@ export default function NotificationPanel() {
               </p>
               <p className="text-white/70 text-[11px] m-0 leading-tight mt-0.5">
                 {notifications.length === 0
-                  ? "Sab theek hai!"
-                  : `${notifications.length} naya event`}
+                  ? "All is well!"
+                  : `${notifications.length} New event`}
               </p>
             </div>
           </div>
@@ -160,7 +160,7 @@ export default function NotificationPanel() {
                     transform: isRemoving
                       ? "translateX(60px)"
                       : "translateX(0)",
-                    transition: "all 0.35s ease",
+                    transition: "all 600ms ease",
                     animation: `fadeSlideIn 0.4s ease ${index * 0.05}s both`,
                   }}
                 >
