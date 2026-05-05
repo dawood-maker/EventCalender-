@@ -20,7 +20,7 @@ export const LEGEND_ITEMS = [
 ];
 
 export const STATUS_BADGE = {
-  coming: "bg-green-100 text-green-700",
+  coming: "bg-green-100 text-green-900",
   late: "bg-yellow-100 text-yellow-700",
   not_coming: "bg-red-100 text-red-700",
 };

@@ -144,9 +144,9 @@ function CreateEvent() {
         eventId = res.data.event._id;
         if (validAttendees.length > 0) {
           await sendInvites(eventId);
-          alert("Event create hua & invites bhej diye!");
+          alert("Host an event & send out invites!");
         } else {
-          alert(" Event create ho gaya!");
+          alert("The event is done!");
         }
       }
 
