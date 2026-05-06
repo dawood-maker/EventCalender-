@@ -37,7 +37,7 @@ export default function Login() {
     } catch (err) {
       const msg = err.response?.data?.message;
       if (err.response?.status === 403) {
-        setError("Aapka account verify nahi hua. Pehle OTP verify karein.");
+        setError("Your account has not been verified. First do the vatap warfe.");
         setUnverified(true);
       } else {
         setError(msg || "Login failed");

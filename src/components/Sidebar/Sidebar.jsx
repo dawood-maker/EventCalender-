@@ -15,7 +15,7 @@ export default function Sidebar({ isOpen, onToggle }) {
   const isActive = (path) => location.pathname === path;
 
   const handleLogout = () => {
-    if (window.confirm("Logout karna chahte ho?")) {
+    if (window.confirm("Want to log in?")) {
       logout();
       navigate("/login");
     }

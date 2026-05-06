@@ -105,7 +105,7 @@ export default function CalendarComponent() {
   const handleEventClick = (info) => setModal(info.event.extendedProps);
 
   const handleComplete = async (id) => {
-    if (!window.confirm("Is event ko complete mark karo?")) return;
+    if (!window.confirm("Mark this event complete?")) return;
     try {
       await completeEvent(id);
       await fetchEvents();

@@ -22,7 +22,7 @@ function ResetPassword() {
 
     if (password !== confirm) {
       console.log("Password mismatch error");
-      return setError("Passwords match nahi karte");
+      return setError("Passwords do not match");
     }
 
     setLoading(true);
